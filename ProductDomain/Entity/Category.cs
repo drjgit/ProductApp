@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace ProductDomain.Entity
 {
     public class Category
@@ -23,6 +18,21 @@ namespace ProductDomain.Entity
             Url = url;
             Visiable = visiable;
             Deleted = deleted;
+        }
+
+        public void CategoryVisiable()
+        {
+            this.Visiable = true;
+        }
+
+        public void CategoryInvisable()
+        {
+            this.Visiable = false;
+        }
+
+        public void CategoryDeleted()
+        {
+            this.Deleted = false;
         }
     }
 }

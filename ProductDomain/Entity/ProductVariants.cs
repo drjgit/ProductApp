@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
+﻿using System.Text.Json.Serialization;
 
 namespace ProductDomain.Entity
 {
@@ -36,5 +30,28 @@ namespace ProductDomain.Entity
             Deleted = deleted;
         }
 
+        public void UpdateType(ProductType type)
+        {
+            if (type.Name == ProductType.Name)
+            {
+                Console.WriteLine("已存在该套餐");
+            }
+            this.ProductType = type;
+        }
+
+        public void ProductVisiable()
+        {
+            this.Visiable = true;
+        }
+
+        public void ProductInvisiable()
+        {
+            this.Visiable = false;
+        }
+
+        public void ProductDeleted()
+        {
+            this.Deleted = true;
+        }
     }
 }

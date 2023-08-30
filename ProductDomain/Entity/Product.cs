@@ -28,5 +28,62 @@
             Visiable = visiable;    
             Deleted = delete;
         }
+
+        public void ActiveFeatured()
+        { 
+            if (this.Featured)
+            {
+
+            }
+            this.Featured = true; 
+        }
+
+        public void DrawbackFeatured()
+        {
+            if (!this.Featured) 
+            {
+
+            }   
+            this.Featured = false;
+        }
+
+        public void AddVariant(ProductVariants variant)
+        {
+            if (this.Variants.Contains(variant))
+            {
+                Console.WriteLine("该商品已包含套餐");
+                return;
+            }
+            this.Variants.Add(variant);
+        }
+
+        public void RemoveVariant(ProductVariants variant)
+        {
+            if (!this.Variants.Contains(variant))
+            {
+                Console.WriteLine("该商品已包含套餐");
+                return;
+            }
+            this.Variants.Remove(variant);
+        }
+
+        public void ProductVisiable()
+        {
+            if (!this.Visiable) 
+            {
+            
+            }
+            this.Visiable = false;
+        }
+
+        public void ProductDeleted()
+        {
+            if (this.Deleted)
+            {
+                Console.WriteLine("");
+            }
+            this.Deleted = true;
+            this.Visiable = false;
+        }
     }
 }
