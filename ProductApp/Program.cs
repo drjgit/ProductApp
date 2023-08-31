@@ -11,9 +11,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//builder.Services.AddControllers<ProductDBContext>((DbContextOptionsBuilder opt) => { 
-//    opt.UseNpgslq()
-//});
+builder.Services.AddDbContext<ProductDBContext>((DbContextOptionsBuilder opt) => {
+    opt.UseNpgsql(builder.Configuration.GetSection(key:"DBConnect").Value);
+});
 
 var app = builder.Build();
 

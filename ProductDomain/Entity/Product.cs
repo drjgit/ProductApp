@@ -16,7 +16,7 @@
         private Product() { }
 
         public Product(string title, string description, string imageUrl, Guid categoryId, List<ProductVariants> variants, 
-            bool featured=false, bool visiable=true, bool delete=false)
+            bool featured = false, bool visiable = true, bool delete = false)
         {
             Id = Guid.NewGuid();
             Titile = title;
