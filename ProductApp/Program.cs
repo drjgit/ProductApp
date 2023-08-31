@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using ProductDomain;
+using ProductInfrastructure;
 using ProductInfrastructure.dbContexts;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +16,11 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ProductDBContext>((DbContextOptionsBuilder opt) => {
     opt.UseNpgsql(builder.Configuration.GetSection(key:"DBConnect").Value);
 });
+
+// ×¢Èë²Ö¿â²ã
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IProductTypeRepository, ProductTypeRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 
 var app = builder.Build();
 

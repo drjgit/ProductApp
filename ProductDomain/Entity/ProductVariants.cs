@@ -32,7 +32,7 @@ namespace ProductDomain.Entity
 
         public void UpdateType(ProductType type)
         {
-            if (type.Name == ProductType.Name)
+            if (type.Name == this.ProductType.Name)
             {
                 Console.WriteLine("已存在该套餐");
             }
