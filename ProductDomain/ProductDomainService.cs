@@ -1,7 +1,7 @@
 ﻿
 namespace ProductDomain
 {
-    internal class ProductDomainService
+    public class ProductDomainService
     {
         private readonly IProductRepository _repository;
         public ProductDomainService(IProductRepository productRepository) 
