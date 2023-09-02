@@ -1,12 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using ProductApp.Controllers.Response;
 using ProductDomain;
 using ProductDomain.Entity;
 
 namespace ProductApp.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class CategoryController : ControllerBase
     {
@@ -20,8 +19,8 @@ namespace ProductApp.Controllers
         [HttpGet]
         public async Task<ServiceResponse<List<Category>>> GetCategories()
         {
-            ServiceResponse<List<Category>>? serviceResponse = new ServiceResponse<List<Category>>();
             List<Category>? result = await _categoryRepository.FindAllCategoriesAsync();
+            ServiceResponse<List<Category>>? serviceResponse = new ServiceResponse<List<Category>>();
 
             if (result == null || result.Count == 0)
             {

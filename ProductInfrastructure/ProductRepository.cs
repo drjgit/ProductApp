@@ -29,7 +29,7 @@ namespace ProductInfrastructure
             return await _dbContext.Products.Where((Product x) => x.Deleted == false && x.Visiable == true && x.Category.Url.ToLower().Equals(categoryUrl.ToLower())).Include((Product v) => v.Variants.Where((ProductVariants x) => x.Deleted == false && x.Visiable == true)).ToListAsync();
         }
 
-        public Task<List<Product>> FindProductBySearch(string searchText)
+        public Task<List<Product>> FindProductBySearchAsync(string searchText)
         {
             throw new NotImplementedException();
         }

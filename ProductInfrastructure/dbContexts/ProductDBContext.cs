@@ -3,7 +3,7 @@ using ProductDomain.Entity;
 
 namespace ProductInfrastructure.dbContexts
 {
-    public class ProductDBContext:DbContext
+    public class ProductDBContext : DbContext
     {
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductType> ProductTypes { get; set; }
