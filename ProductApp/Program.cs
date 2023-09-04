@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using ProductDomain;
@@ -13,7 +14,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<ProductDBContext>((DbContextOptionsBuilder opt) => {
+builder.Services.AddDbContext<ProductDBContext>((DbContextOptionsBuilder opt) => 
+{
     opt.UseNpgsql(builder.Configuration.GetSection(key:"DBConnect").Value);
 });
 
@@ -21,6 +23,15 @@ builder.Services.AddDbContext<ProductDBContext>((DbContextOptionsBuilder opt) =>
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IProductTypeRepository, ProductTypeRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+
+// ÅäÖÃ¿çÓò
+builder.Services.AddCors((CorsOptions opts) => 
+{
+    opts.AddDefaultPolicy((CorsPolicyBuilder policybuiler) => 
+    {
+        policybuiler.WithOrigins(new string[] { "http://localhost:5104" }).AllowAnyMethod().AllowAnyHeader().AllowCredentials();
+    });
+});
 
 var app = builder.Build();
 
@@ -30,6 +41,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors();
 
 app.UseHttpsRedirection();
 
