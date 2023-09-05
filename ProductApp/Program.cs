@@ -29,7 +29,7 @@ builder.Services.AddCors((CorsOptions opts) =>
 {
     opts.AddDefaultPolicy((CorsPolicyBuilder policybuiler) => 
     {
-        policybuiler.WithOrigins(new string[] { "http://localhost:5104" }).AllowAnyMethod().AllowAnyHeader().AllowCredentials();
+        policybuiler.WithOrigins(new string[] { "http://localhost:8080" }).AllowAnyMethod().AllowAnyHeader().AllowCredentials();
     });
 });
 
