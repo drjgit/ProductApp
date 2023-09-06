@@ -1,16 +1,16 @@
 import axios from "axios";
-import {defineStore} from "pinia";
+import { defineStore } from "pinia";
 
-const base_url = 'http://localhost:5104/';
+const base_url = 'http://localhost:5104';
 const useProductList = defineStore("productList", {
-    state:() => ({
+    state: () => ({
         Products:[],
         ProductType:[]
     }),
-    getters:{
+    getters: {
 
     },
-    actions:{
+    actions: {
         async getAllProduct() {
             await axios.get(base_url+"/api/Product/GetProductList").then(res => {
                 this.Products = res.data.data

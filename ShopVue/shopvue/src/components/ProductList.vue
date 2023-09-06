@@ -2,14 +2,15 @@
     <h2>ProductList</h2>
 </template>
 
-<script>
-import useProductList from '@/stores/useProductList';
-import { onMounted } from 'vue';
+<script setup>
+import pinia from "@/stores"
+import useProductList from "@/stores/useProductList"
+import { onMounted } from "vue"
 
-const varProductList = useProductList();
+const ProductList = useProductList(pinia)
 
 onMounted(async () => {
-    await varProductList.getAllProduct();
+    await ProductList.getAllProduct()
 })
 </script>
 
