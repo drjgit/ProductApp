@@ -45,8 +45,13 @@ const getMinPrice = function GerPriceText(product) {
         return "";
     }
     else if (variants.length == 1){
-        return "Y" + variants[0].price;
+        return "￥" + variants[0].price;
     }
+
+    var prices = variants.map(variant => variant.price);
+    var minPrice = Math.min(...prices)
+
+    return "最低￥" + minPrice + "起";
 }
 </script>
 
