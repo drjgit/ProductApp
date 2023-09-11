@@ -42,7 +42,7 @@ namespace ProductApp.Controllers
             return Ok(serviceResponse);
         }
 
-        [HttpGet(template: "categoryUrl")]
+        [HttpGet(template: "{categoryUrl}")]
         public async Task<ActionResult<ServiceResponse<List<Product>>>> GetProductByCategory(string categoryUrl)
         { 
             List<Product>? result = await _productRepository.FindProductByCategoryAsync(categoryUrl);

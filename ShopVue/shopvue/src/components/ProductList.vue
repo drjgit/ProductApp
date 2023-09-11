@@ -3,7 +3,7 @@
 
     <div class="container">
         <template v-for="product in ProductList.Products" :key="product.id">  
-            <dvi class="product">   
+            <div class="product">   
                 <a @click="detail(product.id)">
                     <img class="media-img" :src="product.imageUrl">
                 </a>
@@ -19,7 +19,7 @@
                         <h5 class="price"> {{getMinPrice(product)}} </h5>
                     </template>
                 </div>
-            </dvi>
+            </div>
         </template>
     </div>
 </template>
