@@ -1,12 +1,23 @@
 <template>  
     <img alt="Vue logo" src="@/assets/logo.png">
-    <Nav />
-    <ProductList />
+    <div class="commont-layout">
+        <el-container>
+            <el-header>
+
+            </el-header>
+
+            <el-main>
+                <Nav />
+                <router-view>
+
+                </router-view>
+            </el-main>
+        </el-container>
+    </div>
 </template>
 
 <script setup>
 import Nav from "@/components/Nav.vue"
-import ProductList from "@/components/ProductList.vue"
 </script>
 
 <style> 

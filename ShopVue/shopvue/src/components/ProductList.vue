@@ -28,11 +28,15 @@
 import pinia from "@/stores"
 import useProductList from "@/stores/useProductList"
 import { onMounted } from "vue"
+import { useRoute } from "vue-router";
 
 const ProductList = useProductList(pinia)
+const route = useRoute();
 
 onMounted(async () => {
-    await ProductList.getAllProduct()
+    if(ProductList.Products.length==0){
+        await ProductList.getProductByCategory(route.params.url)
+    }
 })
 
 function detail(id) {

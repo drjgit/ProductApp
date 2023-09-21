@@ -39,9 +39,11 @@ namespace ProductInfrastructure
             throw new NotImplementedException();
         }
 
-        public Task<List<Product>> FindProductByFeatureAsync()
+        public async Task<List<Product>> FindProductByFeatureAsync()
         {
-            throw new NotImplementedException();
+            List<Product>? result = await _dbContext.Products.Where(p => p.Deleted == false && p.Visiable == true && p.Featured == true).
+                Include(x => x.Variants.Where(x => x.Deleted == false && x.Visiable == true)).ToListAsync();
+            return result;
         }
 
     }

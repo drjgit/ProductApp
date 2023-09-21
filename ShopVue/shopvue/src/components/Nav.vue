@@ -22,6 +22,8 @@ import useProductList from "@/stores/useProductList"
 const Categories = useCategory(pinia)
 const ProductList = useProductList(pinia)
 
+const router = useRouter();
+
 onMounted(async () => {
     await Categories.getCategories();
 })
@@ -30,6 +32,10 @@ async function FindProductByCategory(url) {
     if (url !== "feature") {
         await ProductList.getProductByCategory(url);
     }
+
+    router.push({
+        path: `/product/${url}`
+    })
 }
 </script>
 

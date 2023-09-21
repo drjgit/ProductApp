@@ -21,6 +21,11 @@ const useProductList = defineStore("productList", {
             await axios.get(base_url+"/api/Product/GetProductByCategory/"+url).then(res => {
                 this.Products = res.data.data
             })
+        },
+        async getProductsByFeatured() {
+            await axios.get(base_url+"/api/Product/GetProductByFeature").then(res => {
+                this.Products = res.data.data
+            })
         }
     }
 });
